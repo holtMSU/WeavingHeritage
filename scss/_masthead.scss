@@ -1,84 +1,66 @@
-$masthead-height: 131px;
-$masthead-image-blur: 1px;
-
-#exhibit-masthead > .container {
-  // Maintains the site title and subtitle at slightly below
-  // vertically-centered, even if height of masthead is changed.
+header.masthead {
   position: relative;
-  top: 60%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-#exhibit-masthead {
-  margin-bottom: 0;
-  padding-top: 0;
-  position: static;
-  height: $masthead-height;
-  width: 100%;
-  // To handle potential text blurring caused by the "transform: translateY"
-  // property in #exhibit-masthead > .container
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-
-  .site-title {
-    color: $white;
-    text-shadow: 0 1px 0 $black;
-  }
-  small {
-    color: $white;
-    padding-top: $padding-base-vertical;
-    @extend .hidden-xs;
-  }
-}
-
-// This is to add a background image to the masthead, in a way that
-// enables the site title and subtitle text to be visible above it.
-#exhibit-masthead:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: block;
-    width: auto;
-    height: $masthead-height + $masthead-image-blur + 1;
-    // Include gradient to improve text legibility,
-    // especially on light background images.
-    background-image:
-     linear-gradient(
-       rgba(0, 0, 0, 0.0),
-       rgba(0, 0, 0, 0.4),
-       rgba(0, 0, 0, 0.5)
-     ), image-url("bay-beach-driftwood-1578751.jpg");
-    background-repeat: no-repeat;
-    // Add small amount of blur to help text stand out
-    filter: url(masthead/blur.svg#blur); // for older versions of FF
-    -webkit-filter: blur($masthead-image-blur);
-    filter: blur($masthead-image-blur);
-    // Shift image slightly to hide blurred edge of image
-    margin-left: -$masthead-image-blur;
-    margin-top: -$masthead-image-blur;
-    overflow: hidden;
-    // Add right border to image to hide lighter blurred edge
-    border-right: 1px solid $black;
-  }
-
-@media screen and (max-width: $screen-xs-max) {
-  $masthead-height: 65px;
-  #topnav {
-    padding-left: $padding-small-horizontal;
-    padding-right: $padding-small-horizontal;
-    width: 100%;
-  }
-  #exhibit-masthead {
-    height: $masthead-height;
-    .site-title {
-      font-size: $font-size-h3;
-      margin-top: $padding-base-horizontal * 2;
+  overflow: hidden;
+  padding-top: calc(7rem + 72px);
+  padding-bottom: 7rem;
+  background: linear-gradient(0deg, $secondary 0%, $primary 100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  background-size: cover;
+  .masthead-content {
+    z-index: 1;
+    position: relative;
+    .masthead-heading {
+      font-size: 4rem;
+    }
+    .masthead-subheading {
+      font-size: 2rem;
     }
   }
-  #exhibit-masthead:before {
-    height: $masthead-height + 1;
+  .bg-circle {
+    z-index: 0;
+    position: absolute;
+    border-radius: 100%;
+    background: linear-gradient(0deg, $primary 0%, $secondary 100%);
+  }
+  .bg-circle-1 {
+    height: 90rem;
+    width: 90rem;
+    bottom: -55rem;
+    left: -55rem;
+  }
+  .bg-circle-2 {
+    height: 50rem;
+    width: 50rem;
+    top: -25rem;
+    right: -25rem;
+  }
+  .bg-circle-3 {
+    height: 20rem;
+    width: 20rem;
+    bottom: -10rem;
+    right: 5%;
+  }
+  .bg-circle-4 {
+    height: 30rem;
+    width: 30rem;
+    top: -5rem;
+    right: 35%;
+  }
+}
+
+@media (min-width: 992px) {
+  header.masthead {
+    padding-top: calc(10rem + 55px);
+    padding-bottom: 10rem;
+    .masthead-content {
+      .masthead-heading {
+        font-size: 6rem;
+      }
+      .masthead-subheading {
+        font-size: 4rem;
+      }
+    }
   }
 }
