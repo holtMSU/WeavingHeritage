@@ -53,17 +53,37 @@ h6 {
   font-weight: 700;
   letter-spacing: 0.1rem;
 }
+}
+
+// This is to add a background image to the masthead, in a way that
+// enables the site title and subtitle text to be visible above it.
+#exhibit-masthead:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: block;
+    width: auto;
+    height: $masthead-height + $masthead-image-blur + 1;
+    // Include gradient to improve text legibility,
+    // especially on light background images.
+    background-image:
+     linear-gradient(
+       rgba(0, 0, 0, 0.0),
+       rgba(0, 0, 0, 0.4),
+       rgba(0, 0, 0, 0.5)
+     ), image-url("bay-beach-driftwood-1578751.jpg");
+    background-repeat: no-repeat;
+}
 
 header.masthead {
   position: relative;
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
- background: ;
- background: ;
- background: ;
- background: t();
- background-repeat: no-repeat;
+  background: -webkit-gradient(linear, left bottom, left top, from(#ff6a00), to(#ee0979));
+  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+  background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
   background-size: cover;
